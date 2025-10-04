@@ -9,7 +9,7 @@ function App() {
   const fetchWeather = async () => {
     if (!city) return;
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/weather?city=${city}`);
+      const res = await fetch(`https://weather-dashboard-4p74.onrender.com/api/v1/weather?city=${city}`);
       const data = await res.json();
       setWeather(data);
       fetchHistory(); // refresh history after new search
@@ -21,7 +21,9 @@ function App() {
   // fetch last 5 searches
   const fetchHistory = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/history?limit=5`);
+    const res = await fetch(`https://weather-dashboard-4p74.onrender.com/api/v1/history?limit=5`);
+
+
       const data = await res.json();
       if (data.history) {
         setHistory(data.history);
